@@ -1,0 +1,9 @@
+doctype html
+head
+  title Błąd
+  link(rel='stylesheet' href='/styling.css')
+.error-page
+  include header.pug
+  h1 Wystąpił błąd:
+  p #{error}
+  include footer.pug

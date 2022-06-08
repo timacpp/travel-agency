@@ -34,6 +34,14 @@ app.get('/reservation/:tripId', (req, res) => {
     res.render('reservation', {'trip': trips[req.params.tripId]});
 });
 
+app.use((err, req, res) => {
+    res.render("error", { error: err });
+});
+
+app.use((err, req, res, next) => {
+    res.render("error", { error: "Nie znaleziono strony o podanym adresie" });
+});
+
 app.listen(port, () => {
     console.log(`Started listening on port ${port}`);
 });

@@ -2,33 +2,31 @@ doctype html
 head
   title Rezerwacja
   link(rel='stylesheet' href='/styling.css')
-include header.pug
-script(type='module').
-  import {komunikat} from './modul.mjs';
-  console.log(komunikat);
-form#form
-  label(for='name') Imi&eogon;:
-  br
-  input#name(type='text' name='name' value='')
-  i.fas.fa-exclamation-circle.failure-icon
-  i.far.fa-check-circle.success-icon
-  .error
-  br
-  label(for='surname') Nazwisko:
-  br
-  input#surname(type='text' name='surname')
-  br
-  i.fas.fa-exclamation-circle.failure-icon
-  i.far.fa-check-circle.success-icon
-  .error
-  br
-  p Cena: #{trip.price}
-  button(data-modal-target='#modal' type='submit') W drog&eogon;
-  #modal.modal
-    .modal-header
-      .title Potwierdzenie
-    #modal-body
-      button.close-button(data-close-button='') OK
-  #overlay
-include footer.pug
+.reservation-page
+  include header.pug
+  form#form
+    label(for='name') Imi&eogon;:
+    br
+    input#name(type='text' name='name' value='')
+    i.fas.fa-exclamation-circle.failure-icon
+    i.far.fa-check-circle.success-icon
+    .error
+    br
+    label(for='surname') Nazwisko:
+    br
+    input#surname(type='text' name='surname')
+    br
+    i.fas.fa-exclamation-circle.failure-icon
+    i.far.fa-check-circle.success-icon
+    .error
+    br
+    p Cena: #{trip.price}
+    button(data-modal-target='#modal' type='submit') W drog&eogon;
+    #modal.modal
+      .modal-header
+        .title Potwierdzenie
+      #modal-body
+        button.close-button(data-close-button='') OK
+    #overlay
+  include footer.pug
 script(src='validation.mjs')
