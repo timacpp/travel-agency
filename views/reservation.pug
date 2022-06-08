@@ -4,16 +4,17 @@ head
   link(rel='stylesheet' href='/styling.css')
 .reservation-page
   include header.pug
-  form#form
-    label(for='name') Imi&eogon;:
-    br
-    input#name(type='text' name='name' value='')
-    br
-    label(for='surname') Nazwisko:
-    br
-    input#surname(type='text' name='surname')
-    br
-    br
-    p Cena: #{trip.price}
+  .reservation-data
+    .trip-reservation-info
+      h5 #{trip.name} za #{trip.price} PLN
+      img(src=trip.src alt=trip.alt)
+      h6 Zostało #{trip.tickets} miejsc
+    section#form
+      form(method='post' action='/reservation/'+ trip.id)
+        input#name(type='text' placeholder='Imię' name='name' maxlength='40' required='')
+        input#surname(type='text' placeholder='Nazwisko' name='surname' maxlength='40' required='')
+        input#phone(type='tel' placeholder='Numer telefonu' name='phone' pattern='[0-9]{9}' title='Numer musi być 9-cyfrowy.' required='')
+        input#email(placeholder='Adres email' name='email')
+        input#people(type='number' placeholder='Liczba osób' name='people' required='' min='1' max='4')
+        button#submitid(type='submit') W drogę
   include footer.pug
-script(src='validation.mjs')

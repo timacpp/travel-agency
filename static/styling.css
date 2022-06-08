@@ -3,7 +3,7 @@ body {
     font-size: 30px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
 }
@@ -176,7 +176,40 @@ nav a {
     margin-right: 50px;
 }
 
-form div i {
-    position: absolute;
-    padding: 10px;
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 250px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 75px;
+}
+
+.reservation-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trip-reservation-info > img {
+    width: 300px;
+    height: auto;
+    margin-bottom: -40px;
+    margin-top: -30px;
+}
+
+.trip-reservation-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px;
+    align-items: center;
 }
