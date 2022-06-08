@@ -2,6 +2,7 @@ doctype html
 head
   title Rezerwacja
   link(rel='stylesheet' href='/styling.css')
+include header.pug
 script(type='module').
   import {komunikat} from './modul.mjs';
   console.log(komunikat);
@@ -29,4 +30,5 @@ form#form
     #modal-body
       button.close-button(data-close-button='') OK
   #overlay
+include footer.pug
 script(src='validation.mjs')
