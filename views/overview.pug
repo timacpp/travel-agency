@@ -1,0 +1,37 @@
+doctype html
+head
+  title Wycieczka
+  link(rel='stylesheet' href='/styling.css')
+include header.pug
+.trip
+  img(src=trip.src alt=trip.alt)
+  .description
+    h2=trip.name
+    p
+      | To jest opis wycieczki, w kt&oacute;rym podkre&sacute;lone s&aogon; zalety miejsca,
+      | kt&oacute;re si&eogon; odwiedzi. Poniewa&zdot; to jes tylko przyk&lstrok;ad, to nie ma tu
+      | konkretnych informacji.
+    h3 Nag&lstrok;&oacute;wek z tytu&lstrok;em
+    p
+      | Tu kolejny fragment tekstu. Mo&zdot;e si&eogon; sk&lstrok;ada&cacute; z kilku akapit&oacute;w.
+      | W pierwszej wersji tekst na pewno nie b&eogon;dzie op&lstrok;ywa&lstrok; obrazka,
+      | ale to poprawimy p&oacute;&zdot;niej.
+  .main-info
+    h3 Jeszcze jeden nag&lstrok;&oacute;wek
+    p I kolejne informacji o wycieczce. Trzeba wymy&sacute;li&cacute; i wymy&sacute;li&cacute; w&lstrok;asne.
+    h3 Istotne informacji
+    ul#info-list
+      li termin wycieczki: kiedy&sacute; w przysz&lstrok;o&sacute;ci
+      li temperatury w miejscu docelowym: takie w sam raz
+      li warto zabra&cacute;: troch&eogon; ubra&nacute; na zmian&eogon;
+      li cena wycieczki to: #{trip.price}
+    .program
+      h3 Program wycieczki
+      ol
+        li Odiwedziny w miejscu
+        li Obiad
+        li Wyprawa na szczyt wszystkieigo
+.navigation
+  a#back(href='/') &lt; Powr&oacute;t 
+  a#book(href='reservation/' + trip.id) Zarezerwuj &gt;
+include footer.pug 

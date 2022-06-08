@@ -1,0 +1,44 @@
+doctype html
+head
+  title Strona g&lstrok;&oacute;wna
+  link(rel='stylesheet' href='/styling.css')
+include header.pug
+#main
+  #offers
+    each trip in trips
+      .preview
+        a.preview-photo(href='overview/' + trip.id)
+          img(src=trip.src alt=trip.alt)
+        .preview-text
+          h2=trip.name
+          p=trip.description
+            br
+            |  Cena: #{trip.price}
+          a(href='reservation/' + trip.id) Zarezerwuj &gt;&gt;
+  #sidebar
+    .promotions
+      h3 Promocje
+      h4 G&oacute;ry wysokie
+      p 1-31 lutego
+      a(href='/') Rezerwuj &gt;&gt;
+      h4 Inne miejsca
+      p 17-18 kwietnia
+      a(href='/') Rezerwuj &gt;&gt;
+      h4 Te&zdot; gdzie&sacute;
+      p w listopadzie
+      a(href='/') Rezerwuj &gt;&gt;
+      h4 Warszawa
+      p ci&aogon;gle
+      a(href='/') Rezerwuj &gt;&gt;
+    #tips
+      h3 Porady
+      div
+        p
+          a(href='/') Co zabra&cacute; na wycieczk&eogon;?
+      div
+        p
+          a(href='/') Kiedy najlepiej wyjecha&cacute;?
+      div
+        p
+          a(href='/') Jakie buty s&aogon; najwygodniejsze?
+include footer.pug 
