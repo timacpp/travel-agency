@@ -23,15 +23,15 @@ app.get('(overview)+(reservation)/:tripId/', (req, res) => {
 });
 
 app.get('/overview/:tripId', (req, res) => {
-    res.render('overview', {'trip': trips[req.locals.tripId]});
+    res.render('overview', {'trip': trips[req.params.tripId]});
 });
 
-app.get('/overview/:trip/reservation/:tripId', (req, res) => {
-    res.redirect(`reservation/${req.locals.tripId}`);
+app.get('/overview/reservation/:tripId', (req, res) => {
+    res.redirect(`/reservation/${req.params.tripId}`);
 });
 
 app.get('/reservation/:tripId', (req, res) => {
-    res.render('reservation', {'trip': trips[req.locals.tripId]});
+    res.render('reservation', {'trip': trips[req.params.tripId]});
 });
 
 app.listen(port, () => {

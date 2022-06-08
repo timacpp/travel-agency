@@ -19,18 +19,20 @@ include header.pug
   .main-info
     h3 Jeszcze jeden nag&lstrok;&oacute;wek
     p I kolejne informacji o wycieczce. Trzeba wymy&sacute;li&cacute; i wymy&sacute;li&cacute; w&lstrok;asne.
-    h3 Istotne informacji
-    ul#info-list
-      li termin wycieczki: kiedy&sacute; w przysz&lstrok;o&sacute;ci
-      li temperatury w miejscu docelowym: takie w sam raz
-      li warto zabra&cacute;: troch&eogon; ubra&nacute; na zmian&eogon;
-      li cena wycieczki to: #{trip.price}
-    .program
-      h3 Program wycieczki
-      ol
-        li Odiwedziny w miejscu
-        li Obiad
-        li Wyprawa na szczyt wszystkieigo
+    .listed-info
+      .important
+        h3 Istotne informacji
+        ul#info-list
+          li termin wycieczki: kiedy&sacute; w przysz&lstrok;o&sacute;ci
+          li temperatury w miejscu docelowym: takie w sam raz
+          li warto zabra&cacute;: troch&eogon; ubra&nacute; na zmian&eogon;
+          li cena wycieczki to: #{trip.price}
+      .program
+        h3 Program wycieczki
+        ol
+          li Odiwedziny w miejscu
+          li Obiad
+          li Wyprawa na szczyt wszystkieigo
 .navigation
   a#back(href='/') &lt; Powr&oacute;t 
   a#book(href='reservation/' + trip.id) Zarezerwuj &gt;
