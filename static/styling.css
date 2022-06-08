@@ -13,11 +13,11 @@ a {
 }
 
 a:hover {
-    color: rgb(233, 164, 200);
+    color: rgb(18, 110, 106);
 }
 
 div a {
-    color: rgb(105, 87, 87);
+    color: rgb(36, 138, 107);
 }
 
 header, footer {
@@ -26,7 +26,6 @@ header, footer {
     padding: 10px;
     margin: -10px;
     max-width: 1920px;
-    color: red;
 }
 
 header {
@@ -52,7 +51,7 @@ nav a {
 }
 
 #back, #book {
-    border: 2.5px solid rgb(114, 240, 229);
+    border: 2.5px solid rgb(102, 173, 190);
     border-radius: 10%;
     padding: 7.5px;
     font-size: 20px;
@@ -75,7 +74,7 @@ nav a {
 }
 
 .trip > img {
-    width: 30%;
+    width: 500px;
     height: auto;
     margin-left: 30px;
     margin-right: 40px;
