@@ -1,20 +1,22 @@
 import express from "express";
 import _body_parser from "body-parser";
+import connect from "./database/connection.mjs"
+import Op from "sequelize"
 
 const port = 8080;
 const app = express();
 
-const trips = [
-    {'id': 0, 'name': 'Szczyt wszystkiego', 'description': 'Krótka wycieczka z wejściem na ten właśnie szczyt.', 'price': 15002900, 'src': '/mountain.jpg', 'alt': 'mountain'},
-    {'id': 1, 'name': 'Dalekie morza', 'description': 'Mórz jest wiele, więc i opis może być nieco dłuższy niż poprzednio. Atrakcji też może być więcej.', 'price': 17, 'src': '/sea.jpeg', 'alt': 'sea'},
-    {'id': 2, 'name': 'Miasto', 'description': 'Na świecie mamy jeszcze miasta, można je zwiedzać.', 'price': 3405691582, 'src': '/city.jpg', 'alt': 'city'}
-];
+const { Trip, Reservation, sequelize } = await connect();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(express.static('static'));
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    const trips = await Trip.findAll({
+        order: ["start"]
+    });
+
     res.render('home', {'trips': trips});
 });
 
@@ -22,17 +24,32 @@ app.get('(overview)+(reservation)/:tripId/', (req, res) => {
     res.redirect('/');
 });
 
-app.get('/overview/:tripId', (req, res) => {
-    res.render('overview', {'trip': trips[req.params.tripId]});
+app.get('/overview/:tripId', async (req, res, next) => {
+    const trip = await Trip.findByPk(req.params.tripId);
+
+    if (trip) {
+        res.render('overview', {'trip': trip});
+    } else {
+        next(new Error(`Nie można odnaleźć wycieczki z id: ${req.params.tripId}`));
+    }
 });
 
-app.get('/overview/reservation/:tripId', (req, res) => {
+app.get('/overview/reservation/:tripId', async (req, res) => {
     res.redirect(`/reservation/${req.params.tripId}`);
 });
 
-app.get('/reservation/:tripId', (req, res) => {
-    res.render('reservation', {'trip': trips[req.params.tripId]});
+app.get('/reservation/:tripId', async (req, res, next) => {
+    const trip = await Trip.findByPk(req.params.tripId);
+    
+    if (trip) {
+        res.render('reservation', {'trip': trip});
+    } else {
+        next(new Error(`Nie można odnaleźć wycieczki z id: ${req.params.tripId}`));
+    }
 });
+
+// TODO
+app.post('/reservation/:tripId', async (req, res) => {});
 
 app.use((err, req, res) => {
     res.render("error", { error: err });
