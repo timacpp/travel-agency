@@ -9,6 +9,8 @@ head
       h5 #{trip.name} za #{trip.price} PLN
       img(src=trip.image alt=trip.alt)
       h6 Zostało miejsc: #{trip.tickets}
+      .form-error
+        p=error
     section#form
       form(method='post' action='/reservation/'+ trip.id)
         input#name(type='text' placeholder='Imię' name='name' maxlength='40' required='')
