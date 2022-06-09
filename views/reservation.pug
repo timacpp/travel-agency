@@ -7,8 +7,8 @@ head
   .reservation-data
     .trip-reservation-info
       h5 #{trip.name} za #{trip.price} PLN
-      img(src=trip.src alt=trip.alt)
-      h6 Zostało #{trip.tickets} miejsc
+      img(src=trip.image alt=trip.alt)
+      h6 Zostało miejsc: #{trip.tickets}
     section#form
       form(method='post' action='/reservation/'+ trip.id)
         input#name(type='text' placeholder='Imię' name='name' maxlength='40' required='')

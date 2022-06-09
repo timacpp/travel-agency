@@ -8,12 +8,11 @@ include header.pug
     each trip in trips
       .preview
         a.preview-photo(href='overview/' + trip.id)
-          img(src=trip.src alt=trip.alt)
+          img(src=trip.image alt=trip.alt)
         .preview-text
           h2=trip.name
           p=trip.description
-            br
-            |  Cena: #{trip.price}
+          p od #{trip.start} do #{trip.end} &nbsp&nbsp  Cena: #{trip.price} PLN
           a(href='reservation/' + trip.id) Zarezerwuj &gt;&gt;
   #sidebar
     .promotions
